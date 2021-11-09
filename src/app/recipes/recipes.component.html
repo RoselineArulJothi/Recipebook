@@ -1,0 +1,15 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-5">
+            <app-recipelist (recipewasselected)="selectedrecipe=$event" ></app-recipelist>
+        </div>
+        <div class="col-md-7">
+            <app-recipedetail 
+            *ngIf="selectedrecipe;else infopath"
+            [recipe]='selectedrecipe'></app-recipedetail>
+            <ng-template #infopath>
+                <h6>No Recipe was selected.</h6>
+            </ng-template>
+        </div>
+    </div>
+</div>
